@@ -13,11 +13,9 @@ export class CheckInOutComponent implements OnInit {
   dateTime:any;
   constructor(public fb: FormBuilder, public datePipe: DatePipe) {
     let dt= new Date();
-    //this.dateTime=this.datePipe.transform(dt,"dd-MM-yyyy HH:MM a");
-    //this.myForm.get('time').patchValue(this.dateTime)
-    //this.dateTime= new Date().toISOString().substring(0, 18);
     this.dateTime = new Date().toISOString().slice(0, 16);
     console.log(this.dateTime);
+
     this.myForm = fb.group({
       name: ['', Validators.required],
       nric: ['', Validators.required],
@@ -30,18 +28,6 @@ export class CheckInOutComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    let dt= new Date();
-    //this.dateTime=this.datePipe.transform(dt,"dd-MM-yyyy HH:MM a");
-    //this.myForm.patchValue(this.dateTime)
-    //this.dateTime= new Date().toISOString().substring(0, 18);
-    //console.log(this.dateTime);
-  }
-
-  getDate(dt) {
-    const format = 'dd-MM-yyyy';
-    const myDate = dt.value;
-    const locale = 'en-US';
-    //this.tempDate = formatDate(myDate, format, locale);
   }
 
   onSubmit() {
