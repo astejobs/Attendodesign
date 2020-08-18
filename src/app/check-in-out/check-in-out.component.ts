@@ -12,20 +12,18 @@ export class CheckInOutComponent implements OnInit {
   @ViewChild('myForm') myForm:NgForm;
   attendance:any={};
   appUser:any={}
-  dateTime:any;
-  constructor(public datePipe: DatePipe) {
-    let dt= new Date();
-    this.dateTime = new Date().toISOString().slice(0, 16);
-    console.log(this.dateTime);    
+  dateTime=new Date();
+  constructor(public datePipe: DatePipe) {    
   }
 
   ngOnInit(): void {
     this.attendance.appUser = {};
-    this.attendance.time=this.dateTime;
+    let bindDate = this.datePipe.transform(this.dateTime, 'dd-MM-yyyy hh:mm a'); console.log(bindDate)
+    this.attendance.time=bindDate;
   }
 
   onSubmit() {
-    console.log(this.myForm.value)
+    console.log(this.myForm.value);
   }
 
 }
