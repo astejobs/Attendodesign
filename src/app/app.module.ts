@@ -3,6 +3,7 @@ import { NgModule, NO_ERRORS_SCHEMA } from '@angular/core';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { FormsModule } from '@angular/forms';
 import { DatePipe } from '@angular/common';
+import { HttpClientModule} from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -19,7 +20,8 @@ import { CheckInOutComponent } from './check-in-out/check-in-out.component';
     AppRoutingModule,
     MDBBootstrapModule.forRoot(),
     BrowserAnimationsModule,
-    FormsModule          
+    FormsModule,
+    HttpClientModule         
 
   ],
   schemas: [ NO_ERRORS_SCHEMA ],

@@ -35,7 +35,7 @@
                             </div>
                             <!-- Default checked -->
                             <div class="custom-control custom-radio">
-                                <input type="radio" class="custom-control-input" id="CheckIn" value="CheckIn" name="check" checked mdbInput required>
+                                <input type="radio" class="custom-control-input" id="CheckIn" value="checkIn" name="check" checked mdbInput>
                                 <label class="custom-control-label" for="CheckIn">Check-In</label>
                             </div>
                         </div>
@@ -45,12 +45,12 @@
                                 <label for="nric">NRIC/FIN No.</label>
                             </div>
                             <div class="md-form">
-                                <input type="text" id="time" class="form-control" mdbInput name="time" [(ngModel)]="attendance.time" required #nric="ngModel">
+                                <input type="text" id="time" class="form-control" mdbInput name="time" [(ngModel)]="attendance.time" #nric="ngModel" readonly="readonly">
                                 <!-- <label for="time">Time</label> -->
                             </div>
                             <!-- Default unchecked -->
                             <div class="custom-control custom-radio">
-                                <input type="radio" class="custom-control-input" id="checkOut" value="checkOut" name="check" mdbInput required>
+                                <input type="radio" class="custom-control-input" id="checkOut" value="checkOut" name="check" [(ngModel)]="attendance.check" mdbInput>
                                 <label class="custom-control-label" for="checkOut">Check-Out</label>
                             </div>
                         </div>
@@ -59,7 +59,7 @@
                     <div class="row mt-3 mb-2">
                         <!--Grid column-->
                         <div class="col-sm-12">
-                            <button type="submit" mdbBtn color="primary" rounded="true" class="z-depth-1 waves-light btn-check px-4 btn-sm" mdbWavesEffect [disabled]="">SUBMIT</button>
+                            <button type="submit" mdbBtn color="primary" rounded="true" class="z-depth-1 waves-light btn-check px-4 btn-sm" mdbWavesEffect [disabled]="!myForm.valid">SUBMIT</button>
                         </div>
                     </div>
                     <!--Grid row-->

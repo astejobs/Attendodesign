@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { DatePipe } from '@angular/common';
-
+import { CheckInOutService } from './check-in-out.service'
 @Component({
   selector: 'app-check-in-out',
   templateUrl: './check-in-out.component.html',
@@ -13,17 +13,24 @@ export class CheckInOutComponent implements OnInit {
   attendance:any={};
   appUser:any={}
   dateTime=new Date();
-  constructor(public datePipe: DatePipe) {    
+  constructor(private checkService:CheckInOutService,public datePipe: DatePipe) {    
   }
 
   ngOnInit(): void {
     this.attendance.appUser = {};
-    let bindDate = this.datePipe.transform(this.dateTime, 'dd-MM-yyyy hh:mm a'); console.log(bindDate)
+    let bindDate = this.datePipe.transform(this.dateTime, 'dd-MM-yyyy hh:mm'); console.log(bindDate)
     this.attendance.time=bindDate;
   }
 
   onSubmit() {
-    console.log(this.myForm.value);
+   if(this.attendance.check="checkIn"){
+     this.attendance.checkInTime=this.attendance.time;
+   }else{
+    this.attendance.checkOutTime=this.attendance.time;
+   }
+    this.checkService.save(this.attendance).subscribe((data:any)=>{
+      this.ngOnInit();
+    });
   }
 
 }
