@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { formatDate, DatePipe } from '@angular/common';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { NgForm } from '@angular/forms';
+import { DatePipe } from '@angular/common';
 
 @Component({
   selector: 'app-check-in-out',
@@ -9,25 +9,19 @@ import { formatDate, DatePipe } from '@angular/common';
 })
 export class CheckInOutComponent implements OnInit {
 
-  myForm: FormGroup;
+  @ViewChild('myForm') myForm:NgForm;
+  attendance:any={};
+  appUser:any={}
   dateTime:any;
-  constructor(public fb: FormBuilder, public datePipe: DatePipe) {
+  constructor(public datePipe: DatePipe) {
     let dt= new Date();
     this.dateTime = new Date().toISOString().slice(0, 16);
-    console.log(this.dateTime);
-
-    this.myForm = fb.group({
-      name: ['', Validators.required],
-      nric: ['', Validators.required],
-      designation: ['', Validators.required],
-      temperature: [''],
-      location: ['', Validators.required],
-      time: [this.dateTime, Validators.required],
-      check: ['', Validators.required],
-    });
+    console.log(this.dateTime);    
   }
 
   ngOnInit(): void {
+    this.attendance.appUser = {};
+    this.attendance.time=this.dateTime;
   }
 
   onSubmit() {

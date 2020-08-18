@@ -2,89 +2,72 @@
     <div class="col-sm-12">
         <!--Form with header-->
         <mdb-card>
-        <div class="col-sm-12">
-            <div class="text-center">
-            <img src="/assets/images/STIE-Logo-color.png" class="logo py-3" width="40%" height="140px"></div>
-        </div>
-        <!--Header-->
-        <div class="header py-1 " style="background-color: #e2e2e2;">
-            <div class="row">
-                
-                <div class="col-sm-12 text-center">
-                    <h5 class="mb-2 pt-2 text-dark">Employee Attendance</h5>
-                    
-                </div>
-            </div>
-        
-        </div>
-        <!--Header-->
-    
-        <mdb-card-body class="mx-4 mt-2">
-    
-            <!--Body-->
-            <form [formGroup]="myForm" (ngSubmit)="onSubmit()">
-                <div class="row">
-                    <div class="col-sm-12 col-md-6">
-                        <div class="md-form">
-                            <input type="text" id="name" formControlName="name" class="form-control" mdbInput>
-                            <label for="name">Name of The Person</label>
-                        </div>
-                
-                        <div class="md-form">
-                            <input type="text" id="nric" formControlName="nric" class="form-control" mdbInput>
-                            <label for="nric">NRIC/FIN No.</label>
-                        </div>
-                        <div class="md-form">
-                            <input type="text" id="designation" formControlName="designation" class="form-control" mdbInput>
-                            <label for="designation">Designation</label>
-                        </div>
-                        <!-- Default checked -->
-                    <div class="custom-control custom-radio">
-                        <input type="radio" class="custom-control-input" id="CheckIn"  value="CheckIn" checked mdbInput formControlName="check">
-                        <label class="custom-control-label" for="CheckIn">Check-In</label>
-                    </div>
-                    </div>
-                    <div class="col-sm-12 col-md-6">
-                        <div class="md-form">
-                            <input type="text" id="temperature" formControlName="temperature" class="form-control" mdbInput>
-                            <label for="temperature">Temperature</label>
-                        </div>
-                        <div class="md-form">
-                            <input type="text" id="location" formControlName="location" class="form-control" mdbInput>
-                            <label for="location">Location Details</label>
-                        </div>
-                        <div class="md-form">
-                            <input type="datetime-local" id="time" formControlName="time" class="form-control" mdbInput>
-                            <!-- <label for="time">Time</label> -->
-                        </div>
-                         <!-- Default unchecked -->
-                    <div class="custom-control custom-radio">
-                        <input type="radio" class="custom-control-input" id="checkOut" value="checkOut" mdbInput  formControlName="check">
-                        <label class="custom-control-label" for="checkOut">Check-Out</label>
-                    </div>
-                    </div>
-                   
-                    
-                    
-                </div>
-            
-    
-            <!--Grid row-->
-            <div class="row mt-3 mb-2">
-    
-            <!--Grid column-->
             <div class="col-sm-12">
-                  
-                    <button type="submit" mdbBtn color="primary" rounded="true" class="z-depth-1 waves-light btn-check px-4 btn-sm" mdbWavesEffect [disabled]="">SUBMIT</button>
+                <div class="text-center">
+                    <img src="/assets/images/STIE-Logo-color.png" class="logo py-3" width="40%" height="140px"></div>
             </div>
-        
+            <!--Header-->
+            <div class="header py-1 " style="background-color: #e2e2e2;">
+                <div class="row">
+
+                    <div class="col-sm-12 text-center">
+                        <h5 class="mb-2 pt-2 text-dark">Employee Attendance</h5>
+
+                    </div>
+                </div>
+
             </div>
-            <!--Grid row-->
-            </form>
-        </mdb-card-body>
-    
+            <!--Header-->
+
+            <mdb-card-body class="mx-4 mt-2">
+
+                <!--Body-->
+                <form #myForm="ngForm" (ngSubmit)="onSubmit()">
+                    <div class="row">
+                        <div class="col-sm-12 col-md-6">
+                            <div class="md-form">
+                                <input type="text" id="name" name="name" [(ngModel)]="attendance.appUser.name" required #name="ngModel" class="form-control" mdbInput>
+                                <label for="name">Name</label>
+                            </div>
+                            <div class="md-form">
+                                <input type="text" id="designation" name="designation" [(ngModel)]="attendance.appUser.designation" required #designation="ngModel" class="form-control" mdbInput>
+                                <label for="designation">Designation</label>
+                            </div>
+                            <!-- Default checked -->
+                            <div class="custom-control custom-radio">
+                                <input type="radio" class="custom-control-input" id="CheckIn" value="CheckIn" name="check" checked mdbInput required>
+                                <label class="custom-control-label" for="CheckIn">Check-In</label>
+                            </div>
+                        </div>
+                        <div class="col-sm-12 col-md-6">
+                            <div class="md-form">
+                                <input type="text" id="nric" name="nric" [(ngModel)]="attendance.appUser.nric" required #nric="ngModel" class="form-control" mdbInput>
+                                <label for="nric">NRIC/FIN No.</label>
+                            </div>
+                            <div class="md-form">
+                                <input type="datetime-local" id="time" class="form-control" mdbInput name="time" [(ngModel)]="attendance.time" required #nric="ngModel">
+                                <!-- <label for="time">Time</label> -->
+                            </div>
+                            <!-- Default unchecked -->
+                            <div class="custom-control custom-radio">
+                                <input type="radio" class="custom-control-input" id="checkOut" value="checkOut" name="check" mdbInput required>
+                                <label class="custom-control-label" for="checkOut">Check-Out</label>
+                            </div>
+                        </div>
+                    </div>
+                    <!--Grid row-->
+                    <div class="row mt-3 mb-2">
+                        <!--Grid column-->
+                        <div class="col-sm-12">
+                            <button type="submit" mdbBtn color="primary" rounded="true" class="z-depth-1 waves-light btn-check px-4 btn-sm" mdbWavesEffect [disabled]="">SUBMIT</button>
+                        </div>
+                    </div>
+                    <!--Grid row-->
+                </form>
+            </mdb-card-body>
+
         </mdb-card>
         <!--/Form with header-->
     </div>
-  
+
 </div>
