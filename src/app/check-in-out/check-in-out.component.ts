@@ -2,6 +2,9 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { DatePipe } from '@angular/common';
 import { CheckInOutService } from './check-in-out.service'
+import Swal from 'sweetalert2'
+import { NgxSpinnerService } from 'ngx-spinner';
+
 @Component({
   selector: 'app-check-in-out',
   templateUrl: './check-in-out.component.html',
@@ -13,7 +16,8 @@ export class CheckInOutComponent implements OnInit {
   attendance:any={};
   appUser:any={}
   dateTime=new Date();
-  constructor(private checkService:CheckInOutService,public datePipe: DatePipe) {    
+  constructor(private checkService:CheckInOutService,public datePipe: DatePipe,
+              private spinner: NgxSpinnerService) {    
   }
 
   ngOnInit(): void {
@@ -23,12 +27,22 @@ export class CheckInOutComponent implements OnInit {
   }
 
   onSubmit() {
+   this.spinner.show();
    if(this.attendance.check="checkIn"){
      this.attendance.checkInTime=this.attendance.time;
    }else{
     this.attendance.checkOutTime=this.attendance.time;
    }
     this.checkService.save(this.attendance).subscribe((data:any)=>{
+      if(data.status==200){
+        this.spinner.hide();
+        Swal.fire('Thank You', 'Data Saved Successfully!', 'success')
+      }
+      else {
+        this.spinner.hide();
+        Swal.fire('Oops...', 'Something went wrong!', 'error')
+      }
+      this.spinner.hide();
       this.ngOnInit();
     });
   }
