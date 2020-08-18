@@ -25,7 +25,7 @@ export class CheckInOutComponent implements OnInit {
     let bindDate = this.datePipe.transform(this.dateTime, 'dd-MM-yyyy hh:mm'); console.log(bindDate)
     this.attendance.time=bindDate;
   }
-
+ 
   onSubmit() {
    this.spinner.show();
    if(this.attendance.check="checkIn"){
@@ -33,6 +33,8 @@ export class CheckInOutComponent implements OnInit {
    }else{
     this.attendance.checkOutTime=this.attendance.time;
    }
+   console.log('send ing request');
+   
     this.checkService.save(this.attendance).subscribe((data:any)=>{
       if(data.status==200){
         this.spinner.hide();

@@ -6,9 +6,8 @@ const routes: Routes = [
   {path: "", redirectTo:"/attendance", pathMatch:"full",
   resolve:{ attendance:LoadingService }
 },
-  {path: "attendance", component:CheckInOutComponent,
-  resolve:{ attendance:LoadingService }
-}
+  {path: "attendance", component:CheckInOutComponent
+  }
 ];
 
 @NgModule({
