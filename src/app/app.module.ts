@@ -11,12 +11,14 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CheckInOutComponent } from './check-in-out/check-in-out.component';
 import { NgxSpinnerModule } from 'ngx-spinner';
 import { LoadingService } from './loading.service';
+import { EmployeeListComponent } from './employee-list/employee-list.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    CheckInOutComponent
+    CheckInOutComponent,
+    EmployeeListComponent
   ],
   imports: [
     BrowserModule,

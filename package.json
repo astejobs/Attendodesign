@@ -28,6 +28,8 @@
     "ngx-spinner": "^10.0.1",
     "rxjs": "~6.5.5",
     "sweetalert2": "^9.17.1",
+    "file-saver": "^2.0.2",
+    "xlsx": "^0.16.3",
     "tslib": "^2.0.0",
     "zone.js": "~0.10.3"
   },
