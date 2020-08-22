@@ -22,18 +22,19 @@ export class CheckInOutComponent implements OnInit {
 
   ngOnInit(): void {
     this.attendance.appUser = {};
-    let bindDate = this.datePipe.transform(this.dateTime, 'dd-MM-yyyy hh:mm'); console.log(bindDate)
+    let bindDate = this.datePipe.transform(this.dateTime, 'dd-MM-yyyy hh:mm a'); console.log(bindDate)
     this.attendance.time=bindDate;
   }
  
   onSubmit() {
    this.spinner.show();
-   if(this.attendance.check="checkIn"){
-     this.attendance.checkInTime=this.attendance.time;
+   this.attendance.date = this.attendance.time.slice(0,10);
+
+   if(this.attendance.check=="checkIn"){
+     this.attendance.checkInTime=this.attendance.time.slice(10);
    }else{
-    this.attendance.checkOutTime=this.attendance.time;
+    this.attendance.checkOutTime=this.attendance.time.slice(10);
    }
-   console.log('send ing request');
    
     this.checkService.save(this.attendance).subscribe((data:any)=>{
       if(data.status==200){

@@ -7,19 +7,19 @@ import { map } from 'rxjs/operators';
 })
 export class AttendanceService {
 
-  baseURL = 'https://ifarms.com.sg:8085/DailyTemperatureApp/';
+  baseURL = 'http://localhost:8082/';
   
   constructor(private http:HttpClient) { }
 
   fetchAttendanceOnSearch(data){
-    const url=this.baseURL+"temperatures";
+    const url=this.baseURL+"search";
       return this.http.post(url,data,{'observe':'response'}).pipe(map((response)=>{  
       return response;
     }));
   }
 
   fetchReportedAttendance(search){
-    const url=this.baseURL+"reportedEmployees";
+    const url=this.baseURL+"excel";
       return this.http.post(url,search,{'responseType':'blob' as 'json'}).pipe(map((response)=>{  
       return response;
     }));

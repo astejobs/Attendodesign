@@ -26,10 +26,10 @@
                         <tbody>
                             <tr *ngFor="let el of elements; let i = index">
                                 <th *ngIf="i+1 >= mdbTablePagination.firstItemIndex && i < mdbTablePagination.lastItemIndex" scope="row">{{el.appUser.name}}</th>
-                                <td *ngIf="i+1 >= mdbTablePagination.firstItemIndex && i < mdbTablePagination.lastItemIndex">{{el.shift}}</td>
+                                <td *ngIf="i+1 >= mdbTablePagination.firstItemIndex && i < mdbTablePagination.lastItemIndex">{{el.appUser.nric}}</td>
                                 <td *ngIf="i+1 >= mdbTablePagination.firstItemIndex && i < mdbTablePagination.lastItemIndex">{{el.date}}</td>
-                                <td *ngIf="i+1 >= mdbTablePagination.firstItemIndex && i < mdbTablePagination.lastItemIndex">Checkin</td>
-                                <td *ngIf="i+1 >= mdbTablePagination.firstItemIndex && i < mdbTablePagination.lastItemIndex">checkout</td>
+                                <td *ngIf="i+1 >= mdbTablePagination.firstItemIndex && i < mdbTablePagination.lastItemIndex">{{el.checkInTime}}</td>
+                                <td *ngIf="i+1 >= mdbTablePagination.firstItemIndex && i < mdbTablePagination.lastItemIndex">{{el.checkOutTime}}</td>
                             </tr>
                         </tbody>
 
@@ -70,7 +70,7 @@
                     <div class="row">
                         <div class="form-group col-sm-12">
                             <label for="nric "> NRIC</label>
-                            <input type="text" id="nric" required class="form-control" name="nric" [(ngModel)]="search.nric"/>
+                            <input type="text" id="nric" class="form-control" name="nric" [(ngModel)]="search.nric" />
                         </div>
                         <div class="col-sm-6">
                             <label for="startDate ">From Date</label>

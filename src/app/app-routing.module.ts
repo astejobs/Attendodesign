@@ -8,7 +8,7 @@ const routes: Routes = [
   resolve:{ attendance:LoadingService }
 },
   {path: "attendance", component:CheckInOutComponent},
-  {path: "showlist", component:EmployeeListComponent}
+  {path: "search", component:EmployeeListComponent}
 ];
 
 @NgModule({
