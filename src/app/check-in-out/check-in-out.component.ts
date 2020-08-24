@@ -21,6 +21,7 @@ export class CheckInOutComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    localStorage.setItem('url','attendance');
     this.attendance.appUser = {};
     let bindDate = this.datePipe.transform(this.dateTime, 'dd-MM-yyyy hh:mm a'); console.log(bindDate)
     this.attendance.time=bindDate;

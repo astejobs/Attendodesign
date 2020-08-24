@@ -12,13 +12,18 @@ import { CheckInOutComponent } from './check-in-out/check-in-out.component';
 import { NgxSpinnerModule } from 'ngx-spinner';
 import { LoadingService } from './loading.service';
 import { EmployeeListComponent } from './employee-list/employee-list.component';
+import { HeaderComponent } from './header/header.component';
+import { MatMenuModule} from '@angular/material/menu';
+import { MatButtonModule} from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     CheckInOutComponent,
-    EmployeeListComponent
+    EmployeeListComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,
@@ -27,7 +32,10 @@ import { EmployeeListComponent } from './employee-list/employee-list.component';
     BrowserAnimationsModule,
     FormsModule,
     HttpClientModule,
-    NgxSpinnerModule         
+    NgxSpinnerModule,
+    MatMenuModule ,
+    MatButtonModule,
+    MatIconModule        
 
   ],
   schemas: [ NO_ERRORS_SCHEMA, CUSTOM_ELEMENTS_SCHEMA ],

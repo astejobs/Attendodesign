@@ -39,6 +39,7 @@ export class EmployeeListComponent implements OnInit {
   constructor(private cdRef: ChangeDetectorRef, private spinner: NgxSpinnerService, private attendanceService: AttendanceService) { }
 
   ngOnInit() {
+    localStorage.setItem('url','search');
     /* this.spinner.show();
     this.att_service.fetchAttendanceOnSearch(this.search).subscribe((response:any)=>{
      this.elements= response.body;
