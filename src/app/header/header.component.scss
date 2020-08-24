@@ -1,0 +1,25 @@
+
+.btn-menu {
+    float: right;
+}
+::ng-deep .mat-menu-panel {
+    background: linear-gradient(to bottom right, #d0ced1 0%, #aba8b3 100%);
+    color: rgb(46, 39, 39);
+}
+::ng-deep .sticky-top {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+    z-index: 99;
+}
+button:focus {
+    outline: none;
+    border: 0;
+ }
+ mat-menu:focus {
+    outline: none;
+    border: 0;
+ }
+::ng-deep .mat-menu-content .mat-menu-item{
+    color: rgb(56, 50, 50) !important;
+ }

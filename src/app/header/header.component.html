@@ -1,0 +1,27 @@
+<!--Main Navigation-->
+<header class="text-center py-3 mb-2 c-head">
+    <button mat-icon-button [matMenuTriggerFor]="userMenu" class="btn-menu mt-5 mr-4">
+        <mat-icon style="font-size: 30px; color:rgb(212, 50, 50);">menu</mat-icon>
+    </button>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="text-center">
+                    <img src="/assets/images/STIE-Logo-color.png" class="logo py-3" width="40%" height="140px"></div>
+            </div>
+        </div>
+    </div>
+</header>
+<!--Main Navigation-->
+<!-- dropdown menu for user account -->
+<mat-menu #userMenu="matMenu" >
+    <!-- *ngIf="role=='Admin'" -->
+    <button mat-menu-item routerLink="/attendance" *ngIf="getUrl()=='search'">
+        <mat-icon style="color: #ebe3e3;">home</mat-icon>
+        <span>Home</span>
+    </button>
+    <button mat-menu-item *ngIf="getUrl()=='attendance'" routerLink="/search">
+        <mat-icon style="color: #ebe3e3;">search</mat-icon>
+        <span>Search</span>
+    </button>
+</mat-menu>
