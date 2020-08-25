@@ -1,17 +1,22 @@
 <div class="container">
     <div class="row">
+      
         <div class="col-md-8 offset-md-2 jumbotron">
+            <p class="alert alert-danger" *ngIf="errorLbl!=null">
+                <strong> {{errorLbl}}</strong>
+    
+            </p>
             <form #myForm="ngForm" (ngSubmit)="onSubmit()">
             
                 <p class="h4 text-center mb-3">LOG <span class="text-danger">IN</span></p>
             
                 <!-- Email -->
                 <input type="text" id="nric" class="form-control mb-4" placeholder="NRIC"
-                name="nric" [(ngModel)]="login.nric">
+                name="nric" [(ngModel)]="user.username">
             
                 <!-- Password -->
                 <input type="password" id="password" class="form-control mb-4" placeholder="Password"
-                name="password" [(ngModel)]="login.password">
+                name="password" [(ngModel)]="user.password">
             
             
                 <!-- Sign in button -->
