@@ -1,0 +1,27 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-8 offset-md-2 jumbotron">
+            <form #myForm="ngForm" (ngSubmit)="onSubmit()">
+            
+                <p class="h4 text-center mb-3">LOG <span class="text-danger">IN</span></p>
+            
+                <!-- Email -->
+                <input type="text" id="nric" class="form-control mb-4" placeholder="NRIC"
+                name="nric" [(ngModel)]="login.nric">
+            
+                <!-- Password -->
+                <input type="password" id="password" class="form-control mb-4" placeholder="Password"
+                name="password" [(ngModel)]="login.password">
+            
+            
+                <!-- Sign in button -->
+                <button class="btn btn-info btn-block my-3" type="submit">Login</button>
+            
+            
+            
+            </form>
+
+        </div>
+    </div>
+</div>
+<!-- Default form login -->
