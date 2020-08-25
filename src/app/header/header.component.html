@@ -18,16 +18,20 @@
 <!-- dropdown menu for user account -->
 <mat-menu #userMenu="matMenu" >
     <!-- *ngIf="role=='Admin'" -->
-    <button mat-menu-item routerLink="/login">
+    <button mat-menu-item routerLink="/login" *ngIf="getUrl()=='attendance'">
         <mat-icon style="color: #ebe3e3;">login</mat-icon>
         <span>Login</span>
     </button>
-    <button mat-menu-item routerLink="/attendance" *ngIf="getUrl()=='search'">
+    <button mat-menu-item routerLink="/attendance" *ngIf="getUrl()=='login'">
         <mat-icon style="color: #ebe3e3;">home</mat-icon>
         <span>Home</span>
     </button>
-    <button mat-menu-item *ngIf="getUrl()=='attendance'" routerLink="/search">
+    <button mat-menu-item *ngIf="getUrl()=='/search'" routerLink="search">
         <mat-icon style="color: #ebe3e3;">search</mat-icon>
         <span>Search</span>
+    </button>
+    <button mat-menu-item (click)="logout()"  *ngIf="getUrl()=='search'">
+        <mat-icon style="color: #ebe3e3;">logout</mat-icon>
+        <span>Logout</span>
     </button>
 </mat-menu>
